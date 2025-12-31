@@ -67,5 +67,12 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
     implementation(libs.androidx.navigation.compose)
+    implementation("androidx.compose.material3:material3:<latest-version>")
+    implementation("androidx.navigation:navigation-compose:<latest-version>")
+    implementation("androidx.activity:activity-compose:<latest-version>")
+
+    implementation("androidx.compose.material:material")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-core")
 }
 
