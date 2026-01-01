@@ -28,7 +28,7 @@ fun SettingsPage(modifier: Modifier = Modifier) {
     ) {
         Text(
             text = "Settings Page",
-            fontSize = 40.sp,
+            fontSize = 45.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.White
         )

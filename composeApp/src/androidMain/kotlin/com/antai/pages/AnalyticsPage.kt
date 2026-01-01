@@ -22,8 +22,8 @@ fun AnalyticsPage(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = "Notification Page",
-            fontSize = 40.sp,
+            text = "Analytics Page",
+            fontSize = 45.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.White
         )

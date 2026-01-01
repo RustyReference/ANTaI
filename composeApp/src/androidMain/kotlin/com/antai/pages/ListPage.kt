@@ -28,7 +28,7 @@ fun ListPage(modifier: Modifier = Modifier) {
     ) {
         Text(
             text = "List Page",
-            fontSize = 40.sp,
+            fontSize = 45.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.White
         )
