@@ -18,24 +18,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.antai.NavItem
+
 import com.antai.pages.HomePage
 import com.antai.pages.AnalyticsPage
 import com.antai.pages.ListPage
 import com.antai.pages.SettingsPage
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.automirrored.filled.*
+import androidx.compose.material.icons.filled.*
 
 @Composable
 fun App() {
     val navItemList = listOf(
         NavItem("Home", Icons.Default.Home),
-        NavItem("Analytics", Icons.Default.DateRange),
-        NavItem("List", Icons.Default.List),
-        NavItem("Settings", Icons.Default.Settings)
+        NavItem("Analytics", Icons.Default.AutoGraph),
+        NavItem("List", Icons.AutoMirrored.Filled.FormatListBulleted),
+        NavItem("Settings", Icons.Default.Settings),
     )
     var selectedIndex by remember { mutableStateOf(0) }
 
