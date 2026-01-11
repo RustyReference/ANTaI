@@ -30,6 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController goalController = TextEditingController();
   String? _selectedRole;
+  String? _selectedUsage;
+  String? _selectedAmount;
 
   final _roles = const [
     'I use AI as a companion',
@@ -38,6 +40,17 @@ class _HomeScreenState extends State<HomeScreen> {
     'I\'m an entrepreneur',
     'I\'m an artist',
     'Other',
+  ];
+  final _usages = const [
+    'I need to think more critically',
+    'I need to think more creatively',
+    'It is hurting my relationships',
+  ];
+  final _amounts = const [
+    '10+ times a day',
+    '2-10 times a day',
+    '1-7 times a week',
+    '< 1 time a week',
   ];
 
   @override
@@ -49,8 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final nameController = TextEditingController();
-
     return Scaffold(
       appBar: AppBar(title: const Text('Onboarding questions')),
       body: ListView(
@@ -61,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'What should we call you?',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(height: 16),
           TextFormField(
             controller: nameController,
             decoration: const InputDecoration(
@@ -70,6 +82,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             textCapitalization: TextCapitalization.words,
             keyboardType: TextInputType.name,
+          ),
+
+          const SizedBox(height: 24),
+          const Text(
+            'How do you use AI?',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          ..._usages.map(
+            (use) => RadioListTile<String>(
+              title: Text(use),
+              value: use,
+              groupValue: _selectedUsage,
+              onChanged: (value) {
+                setState(() => _selectedUsage = value);
+              },
+            ),
           ),
 
           const SizedBox(height: 24),
@@ -88,7 +117,24 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          
+
+          const SizedBox(height: 24),
+          const Text(
+            'How often do you use AI?',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          ..._amounts.map(
+            (amount) => RadioListTile<String>(
+              title: Text(amount),
+              value: amount,
+              groupValue: _selectedAmount,
+              onChanged: (value) {
+                setState(() => _selectedAmount = value);
+              },
+            ),
+          ),
+
           const SizedBox(height: 24),
           const Text(
             'How much do you want to use AI each day?',
@@ -128,6 +174,8 @@ class _HomeScreenState extends State<HomeScreen> {
               debugPrint('Name: $name');
               debugPrint('Role: $_selectedRole');
               debugPrint('Daily goal: $goal');
+              debugPrint('Amount: $_selectedAmount');
+              debugPrint('Usage: $_selectedUsage');
             },
             child: const Text('Continue'),
           ),
