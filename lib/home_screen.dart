@@ -4,6 +4,10 @@ import 'screens/onboarding/usage_reason_page.dart';
 import 'screens/onboarding/role_page.dart';
 import 'screens/onboarding/amount_page.dart';
 import 'screens/onboarding/goal_page.dart';
+import 'main_app_screen.dart';
+
+// TODO: Advanced error checking on the onboarding questions
+// TODO: Resolve groupValue and onChanged errors
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -82,7 +86,12 @@ class _HomeScreenState extends State<HomeScreen> {
     debugPrint('Current usage: $_selectedAmount');
     debugPrint('Daily goal: $goal');
 
-    // TODO: Navigate to next screen or save data
+    // TODO: Save data from onboarding questions
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (_) => const MainAppScreen(),
+      ),
+    );
   }
 
   List<Widget> get _pages => [
