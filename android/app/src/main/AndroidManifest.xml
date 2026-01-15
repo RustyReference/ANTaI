@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="antai_beginner_screens"
+        android:label="ANTaI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
