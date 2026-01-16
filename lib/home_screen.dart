@@ -58,6 +58,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   
   void _next() {
+    if (!_isCurrentPageValid()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please complete this question before continuing.')),
+      );
+      return;
+    }
     if (_currentIndex < _pages.length - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
@@ -65,6 +71,26 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     } else {
       _submit();
+    }
+  }
+
+  bool _isCurrentPageValid() {
+    switch (_currentIndex) {
+      case 0: // NamePage
+        return nameController.text.trim().isNotEmpty;
+      case 1: // UsageReasonPage
+        return _selectedUsageReason != null;
+      case 2: // RolePage
+        return _selectedRole != null;
+      case 3: // AmountPage
+        return _selectedAmount != null;
+      case 4: // GoalPage
+        final goalText = goalController.text.trim();
+        if (goalText.isEmpty) return false;
+        final goal = int.tryParse(goalText);
+        return goal != null && goal >= 1 && goal <= 15;
+      default:
+        return false;
     }
   }
 
