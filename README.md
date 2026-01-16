@@ -1,4 +1,4 @@
-# antai_beginner_screens
+# ANTaI
 
 A new Flutter project.
 
