@@ -21,12 +21,17 @@ class RolePage extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
-        ...roles.map(
-          (role) => RadioListTile<String>(
-            title: Text(role),
-            value: role,
-            groupValue: selected,
-            onChanged: onChanged,
+        RadioGroup<String>(
+          groupValue: selected,
+          onChanged: onChanged,
+          child: Column(
+            children: [
+              for (final role in roles)
+                RadioListTile<String>(
+                  title: Text(role),
+                  value: role,
+                ),
+            ],
           ),
         ),
       ],

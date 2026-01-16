@@ -7,7 +7,7 @@ import 'screens/onboarding/goal_page.dart';
 import 'main_app_screen.dart';
 
 // TODO: Advanced error checking on the onboarding questions
-// TODO: Resolve groupValue and onChanged errors
+// TODO: Save data from onboarding questions
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -86,7 +86,6 @@ class _HomeScreenState extends State<HomeScreen> {
     debugPrint('Current usage: $_selectedAmount');
     debugPrint('Daily goal: $goal');
 
-    // TODO: Save data from onboarding questions
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (_) => const MainAppScreen(),
