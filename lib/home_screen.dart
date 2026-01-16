@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/onboarding/name_page.dart';
 import 'screens/onboarding/usage_reason_page.dart';
 import 'screens/onboarding/role_page.dart';
@@ -6,8 +7,7 @@ import 'screens/onboarding/amount_page.dart';
 import 'screens/onboarding/goal_page.dart';
 import 'main_app_screen.dart';
 
-// TODO: Advanced error checking on the onboarding questions
-// TODO: Save data from onboarding questions
+// TODO: info - Don't use 'BuildContext's across async gaps - lib\home_screen.dart:121:18 - use_build_context_synchronously
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void _submit() {
+  void _submit() async {
     final name = nameController.text.trim();
     final goal = goalController.text.trim();
     debugPrint('Name: $name');
@@ -111,6 +111,14 @@ class _HomeScreenState extends State<HomeScreen> {
     debugPrint('Role: $_selectedRole');
     debugPrint('Current usage: $_selectedAmount');
     debugPrint('Daily goal: $goal');
+
+    // Save data locally
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user_name', name);
+    await prefs.setString('usage_reason', _selectedUsageReason ?? '');
+    await prefs.setString('user_role', _selectedRole ?? '');
+    await prefs.setString('current_usage', _selectedAmount ?? '');
+    await prefs.setString('daily_goal', goal);
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
