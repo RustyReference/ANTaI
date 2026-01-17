@@ -7,8 +7,6 @@ import 'screens/onboarding/amount_page.dart';
 import 'screens/onboarding/goal_page.dart';
 import 'main_app_screen.dart';
 
-// TODO: info - Don't use 'BuildContext's across async gaps - lib\home_screen.dart:121:18 - use_build_context_synchronously
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -119,6 +117,8 @@ class _HomeScreenState extends State<HomeScreen> {
     await prefs.setString('user_role', _selectedRole ?? '');
     await prefs.setString('current_usage', _selectedAmount ?? '');
     await prefs.setString('daily_goal', goal);
+
+    if (!mounted) return;
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
