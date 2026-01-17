@@ -21,12 +21,17 @@ class AmountPage extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
-        ...amounts.map(
-          (amount) => RadioListTile<String>(
-            title: Text(amount),
-            value: amount,
-            groupValue: selected,
-            onChanged: onChanged,
+        RadioGroup<String>(
+          groupValue: selected,
+          onChanged: onChanged,
+          child: Column(
+            children: [
+              for (final amount in amounts)
+                RadioListTile<String>(
+                  title: Text(amount),
+                  value: amount,
+                ),
+            ],
           ),
         ),
       ],

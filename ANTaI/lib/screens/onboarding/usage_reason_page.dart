@@ -22,12 +22,17 @@ class UsageReasonPage extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
-        ...usages.map(
-          (use) => RadioListTile<String>(
-            title: Text(use),
-            value: use,
-            groupValue: selected,
-            onChanged: onChanged,
+        RadioGroup<String>(
+          groupValue: selected,
+          onChanged: onChanged,
+          child: Column(
+            children: [
+              for (final use in usages)
+                RadioListTile<String>(
+                  title: Text(use),
+                  value: use,
+                ),
+            ],
           ),
         ),
       ],
