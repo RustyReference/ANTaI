@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import '../../components/todo_list.dart';
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
 
@@ -29,16 +29,21 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Welcome${userName != null ? ', $userName' : ''}!',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Center(
+              child: Text(
+                'Welcome${userName != null ? ', $userName' : ''}!',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
             if (dailyGoal != null)
-              Text('Your daily AI goal: $dailyGoal times'),
+              Center(child: Text('Your daily AI goal: $dailyGoal times')),
+            const SizedBox(height: 25),
+            const Expanded(child: TodoList()),
           ],
         ),
       ),
