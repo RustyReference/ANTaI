@@ -21,9 +21,11 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.jsonwebtoken:jjwt-api:0.13.0")
 	implementation("org.postgresql:postgresql")
 	implementation("org.springframework.boot:spring-boot-starter-hateoas")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
+	implementation("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-hateoas-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
