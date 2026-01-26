@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// TODO: Add local storage for the todo list
+// TODO: Add local permanant storage for the todo list
 
 class Todo {
   String text;

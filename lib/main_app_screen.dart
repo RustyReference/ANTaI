@@ -14,7 +14,7 @@ class MainAppScreen extends StatefulWidget {
 class _MainAppScreenState extends State<MainAppScreen> {
   int _currentIndex = 0;
 
-  final _tabs = const [
+  final _tabs = [
     HomeTab(),
     AnalyticsTab(),
     PastChatsTab(),
