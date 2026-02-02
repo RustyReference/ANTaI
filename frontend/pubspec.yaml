@@ -14,6 +14,7 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   shared_preferences: ^2.2.3
   fl_chart: ^1.1.1
+  auth0_flutter: ^1.14.0
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +24,9 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/lesson.png"
+  image_path: "lib/images/lesson.png"
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/images/

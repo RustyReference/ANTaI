@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'onboarding_screens.dart';
 
+// TODO: Make the login page functionality for our app since this app requires a login to work
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(), // from the other file
+      home: const OnboardingScreens(), // from the other file
     );
   }
 }

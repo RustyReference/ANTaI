@@ -7,14 +7,14 @@ import 'screens/onboarding/amount_page.dart';
 import 'screens/onboarding/goal_page.dart';
 import 'main_app_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class OnboardingScreens extends StatefulWidget {
+  const OnboardingScreens({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<OnboardingScreens> createState() => _OnboardingScreensState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _OnboardingScreensState extends State<OnboardingScreens> {
   final _pageController = PageController();
   int _currentIndex = 0;
 
